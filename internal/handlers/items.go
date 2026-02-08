@@ -41,8 +41,9 @@ func (h *ItemHandler) HandleItems(w http.ResponseWriter, r *http.Request) {
 }
 
 func (h *ItemHandler) HandleItemByID(w http.ResponseWriter, r *http.Request) {
-	path := strings.TrimPrefix(r.Path, "/items/")
-	if path == "" {
+	path := r.URL.Path
+	id := strings.TrimPrefix(path, "/items/")
+	if id == "" {
 		http.Error(w, "Item ID required", http.StatusBadRequest)
 		return
 	}

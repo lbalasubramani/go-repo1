@@ -12,7 +12,7 @@ type Config struct {
 }
 
 func Load() (*Config, error) {
-	port := getEnvAsInt("PORT", 8080)
+	port := getEnvAsInt("PORT", 8081)
 	logLevel := getEnv("LOG_LEVEL", "info")
 	env := getEnv("ENV", "development")
 
